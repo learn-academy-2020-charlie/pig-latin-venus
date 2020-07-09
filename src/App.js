@@ -33,20 +33,38 @@ class App extends Component {
       // ACTION ITEM: use 'currentWord' as a starting point for your code
       
       // create a array of vowels
-
       // create a new variable array to store each word 
+      
+      let vowels = ["a", "e", "i" ,"o", "u"]
+      let newArray = []
       // split the currentWord into another array so that each letter is an index
-
+      newArray = currentWord.split("")
       // look at the first letter in the new array and see if it's a vowel
-      // if it start with a vowel join it back together so it's a string again
-      // currentWord is the string  + "way" to the end of the string
+      if (vowels.indexOf(newArray[0]) > -1) {
+        // if it start with a vowel join it back together so it's a string again
+        // currentWord is the string  + "way" to the end of the string
+        currentWord = newArray.join("") + "way"
+      } else if (vowels.indexOf(newArray[0]) <= -1 ){
+        // else if (the first letter is not a vowel)
+        // iterate through the array until the first vowel is reached 
+      
+        newArray.findIndex(vowels)
+        // save the index of the first vowel
+        // move everything including the first vowel and after, and move it to the front
+        // join it back together so that it's a string again
+        // add -ay to the end of the string
 
-      // else if (the first letter is not a vowel)
-      // iterate through the array until the first vowel is reached
-      // save the index of the first vowel
-      // move everything including the first vowel and after, and move it to the front
-      // join it back together so that it's a string again
-      // add -ay to the end of the string
+
+      }
+
+    
+     
+      
+
+      
+      
+
+
 
 
 
