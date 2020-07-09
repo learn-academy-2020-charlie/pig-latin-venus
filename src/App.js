@@ -8,9 +8,9 @@ class App extends Component {
     this.state = {
       // 'phrase' is the text entered by the user - right now there are some test words hard coded to make the process of testing your code a bit faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: 'every through yummy squeal queen fry',
+      phrase: '',
       // 'phraseTranslated' is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the 'submit' button
-      phraseTranslated: 'This is where your translated sentence will appear.'
+      phraseTranslated: ''
     }
   }
 
@@ -37,35 +37,27 @@ class App extends Component {
       
       let vowels = ["a", "e", "i" ,"o", "u"]
       let newArray = []
-      // split the currentWord into another array so that each letter is an index
-      newArray = currentWord.split("")
-      // look at the first letter in the new array and see if it's a vowel
-      if (vowels.indexOf(newArray[0]) > -1) {
-        // if it start with a vowel join it back together so it's a string again
-        // currentWord is the string  + "way" to the end of the string
-        currentWord = newArray.join("") + "way"
-      } else if (vowels.indexOf(newArray[0]) <= -1 ){
-        // else if (the first letter is not a vowel)
-        // iterate through the array until the first vowel is reached 
-      
-        newArray.findIndex(vowels)
-        // save the index of the first vowel
-        // move everything including the first vowel and after, and move it to the front
-        // join it back together so that it's a string again
-        // add -ay to the end of the string
-
-
-      }
-
     
-     
-      
+      // look at the first letter in the new array and see if it's a vowel
+      if (currentWord.charAt(0) == "a" || currentWord.charAt(0) == "e" || currentWord.charAt(0) == "i" || currentWord.charAt(0) == "o" || currentWord.charAt(0) == "u"){
+        // currentWord is the string  + "way" to the end of the string
+            return currentWord += "way"
+      } else {
+        // else if (the first letter is not a vowel)
+        // split the currentWord into another array so that each letter is an index
+        newArray = currentWord.split("")
+        console.log("newArray: " + newArray) 
+        // iterate through the array until the first vowel is reached 
+        // save the index of the first vowel
+        
+        for (let i = 0; i < newArray.length; i++) {
+            if (newArray[i] == "a" || newArray[i] == "e" || newArray[i] == "i" || newArray[i] == "o" || newArray[i] == "u") {
+                
+            }
+        }
+      }    
 
-      
-      
-
-
-
+  
 
 
       // your code here!
@@ -105,8 +97,8 @@ class App extends Component {
     // this method restarts the game by setting the original state
     // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
     this.setState({
-      phrase: 'through every squeal queen fry',
-      phraseTranslated: 'This is where your translated sentence will appear.'
+      phrase: '',
+      phraseTranslated: ''
     })
   }
 
