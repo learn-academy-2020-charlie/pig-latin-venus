@@ -27,7 +27,7 @@ class App extends Component {
 
     // taking the user input and spliting the text into an array of words
     let splitUserInput = userInput.toLowerCase().split(" ")
-
+  
     // now that we have an array of words, we can map over the array and access each word
     splitUserInput.map(currentWord => {
       // ACTION ITEM: use 'currentWord' as a starting point for your code
@@ -37,24 +37,32 @@ class App extends Component {
       
       let vowels = ["a", "e", "i" ,"o", "u"]
       let newArray = []
-    
+      let pigiffied = ""
+      let sliceArray = []
+      let firstVowelI = null
       // look at the first letter in the new array and see if it's a vowel
       if (currentWord.charAt(0) == "a" || currentWord.charAt(0) == "e" || currentWord.charAt(0) == "i" || currentWord.charAt(0) == "o" || currentWord.charAt(0) == "u"){
         // currentWord is the string  + "way" to the end of the string
-            return currentWord += "way"
+           
+        pigiffied = currentWord + "way"
       } else {
         // else if (the first letter is not a vowel)
         // split the currentWord into another array so that each letter is an index
         newArray = currentWord.split("")
-        console.log("newArray: " + newArray) 
+        //console.log("newArray: " + newArray) 
         // iterate through the array until the first vowel is reached 
         // save the index of the first vowel
         
         for (let i = 0; i < newArray.length; i++) {
             if (newArray[i] == "a" || newArray[i] == "e" || newArray[i] == "i" || newArray[i] == "o" || newArray[i] == "u") {
-                return i
+             firstVowelI = i 
+             break 
             }
-        }
+            
+          }
+          sliceArray = currentWord.slice(firstVowelI) + currentWord.slice(0, firstVowelI)
+          console.log(sliceArray) 
+          pigiffied = sliceArray + "ay"
       }    
 
   
@@ -66,7 +74,7 @@ class App extends Component {
 
 
       // ACTION ITEM: change the value of currentWord in the push method to the name of whatever variable you made containing your Pig Latin'd word
-      return translatedWordsArray.push(currentWord)
+      return translatedWordsArray.push(pigiffied)
     })
 
 
